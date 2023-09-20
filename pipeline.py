@@ -16,7 +16,7 @@ from functools import partial
 from prettytable import PrettyTable
 
 import utils
-from configs import configuration
+from configs import configuration, condition_names, get_study_ids_and_scan_nums
 
 def GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(
     netname,
@@ -45,6 +45,8 @@ def GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(
     filter_order,
     gaussian_kernel,
     gaussian_sigma,
+    average_path = None,
+    condition = None,
     overlay_thrmin = 0.1,
     overlay_thrmax = 1,
     ):
@@ -124,9 +126,13 @@ def GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(
     if Taskindex == 1:
         
         #read crosstrial-everaged EPI
-        trailnum = TaskmeanEPITrial
-            
-        directory = os.path.join(path1, str(trailnum))  if filter == 0.1 else os.path.join(path1, str(trailnum), 'NoFilter')
+        if average_path is None:
+            trialnum = TaskmeanEPITrial
+                
+            directory = os.path.join(path1, str(trialnum))  if filter == 0.1 else os.path.join(path1, str(trialnum), 'NoFilter')
+        else:
+            trialnum = TaskmeanEPITrial
+            directory = os.path.join(average_path,'Inter-Animal',str(trialnum))  if filter == 0.1 else os.path.join(path1, str(trialnum), 'NoFilter')
         current_dir = directory
         file_dir = os.path.join(current_dir, prefix+'.img')
         meanEPIdata = np.array(utils.read_bfiles(file_dir, type_data='h'))
@@ -335,6 +341,9 @@ def GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(
     #Add the specific part of the directory name based on the smoothing
     common_dir2 = common_dir2 + '_smooth' if gaussian_sigma > 0 else common_dir2
     
+    #Add the specific part of the directory name based on the condition
+    common_dir2 = common_dir2 + '_{}'.format(condition) if condition is not None else common_dir2
+    
     dir_name2 = common_dir2
     
     current_dir = os.path.join(path1, dir_name2)
@@ -411,34 +420,46 @@ def GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(
 
 if __name__ == '__main__':
     configs = configuration()
-    # setting kwargs
-    
-    #parameters_name_to_change = ['GSindex', 'CCMapmaskindex', 'AtlasbasedROIregres', 'Motionregres', 'gaussian_sigma','bandwidth']
-    parameters_name_to_change = ['Motionregres','bandwidth'] # 
-    if len(parameters_name_to_change) == 0:
-        parameters_name_to_change = ['no_parameter']
-    parameters_to_change =(configs.frequenctly_changed_parameters[param] for param in parameters_name_to_change)
-    #for different settings
     all_start = time.time()
-    
-    for setting in itertools.product(*parameters_to_change):
-        table = PrettyTable(parameters_name_to_change, title='Current Settings')
-        table.add_row(setting)       
-        print(table)
-        for name in parameters_name_to_change:
-            setattr(configs, name, setting[parameters_name_to_change.index(name)])
-            
-        configs.update_config()
-        
-        kwargs = {}
-        for k in inspect.signature(GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP).parameters.keys():
-                kwargs[k] = getattr(configs, k)
-                
+    # setting kwargs
+    configs.pathroi = os.path.join(configs.root_dir, 'ROI_rsfMRI', 'Atlas-based_ROIs_TRNorVSfMRI')
+    for condition_name in condition_names:
+        print('Now processing condition: {}'.format(condition_name))
+        configs.condition = condition_name
+        study_ids, scan_nums, AllAVGanimals = get_study_ids_and_scan_nums(condition_name)
+        configs.average_path = os.path.join(configs.root_dir,'AVG', condition_name)
+        configs.TaskmeanEPITrial = AllAVGanimals[0][0]
+        for study_id, scan_num in zip(study_ids, scan_nums):
+            print('Now processing study_id: {}, scan_num: {}'.format(study_id, scan_num))
+            #setting study_id and scan_num
+            configs.raw_path = os.path.join(configs.root_dir, study_id)
+            configs.pathseed = os.path.join(configs.root_dir, 'ROI_rsfMRI','ROI_'+study_id)
+            #parameters_name_to_change = ['GSindex', 'CCMapmaskindex', 'AtlasbasedROIregres', 'Motionregres', 'gaussian_sigma','bandwidth']
+            parameters_name_to_change = ['bandwidth'] # 
+            if len(parameters_name_to_change) == 0:
+                parameters_name_to_change = ['no_parameter']
+            parameters_to_change =(configs.frequenctly_changed_parameters[param] for param in parameters_name_to_change)
+            #for different settings
 
-        start = time.time()
-        GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(**kwargs)
-        utils.save_pptx(configs)
-        print('time:', time.time()-start)
+            
+            for setting in itertools.product(*parameters_to_change):
+                table = PrettyTable(parameters_name_to_change, title='Current Settings')
+                table.add_row(setting)       
+                print(table)
+                for name in parameters_name_to_change:
+                    setattr(configs, name, setting[parameters_name_to_change.index(name)])
+                    
+                configs.update_config()
+                
+                kwargs = {}
+                for k in inspect.signature(GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP).parameters.keys():
+                        kwargs[k] = getattr(configs, k)
+                        
+
+                start = time.time()
+                GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(**kwargs)
+                utils.save_pptx(configs)
+                print('time:', time.time()-start)
         
         
 

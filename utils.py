@@ -110,10 +110,6 @@ def create_folder(folder_dir):
     if not os.path.exists(folder_dir):
         os.makedirs(folder_dir)
 
-def save_h5(file_name, data, dtype=None):
-    import h5py
-    with h5py.File(file_name, 'w') as f:
-        dset = f.create_dataset('data', data=data, dtype=dtype)
         
 def save_mat(file_name, data):
     io.savemat(file_name, {'data':data})
