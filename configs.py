@@ -89,80 +89,111 @@ def get_study_ids_and_scan_nums(condition):
     Condidx = condition_names.index(condition) + 1
     if Condidx==1:
         study_ids = [
-                    'RatTRNG6RsfMRISinglePulse-20230505', #G6,6.1
-                    'RatTRNG6RsfMRISinglePulse-20230516', #G6-2,6.2
-                    'RatTRNG7RsfMRISinglePulse-20230510', #G7,7.1  
-                    'RatTRNG7RsfMRISinglePulse-20230516', #G7-2,7.2
-                    'RatTRNG7RsfMRISinglePulse-20230622', #G7-3,7.3
-                    'RatTRNG7RsfMRISinglePulse-20230628', #G7-4,7.4
-                    'RatTRNG8RsfMRISinglePulse-20230512', #G8,8.1  
-                    'RatTRNG8RsfMRISinglePulse-20230525', #G8-2,8.2
-                    'RatTRNG8RsfMRISinglePulse-20230623', #G8-3,8.3
-                    'RatTRNG8RsfMRISinglePulse-20230630', #G8-4,8.4
-                    'RatTRNH2RsfMRISinglePulse-20230514', #H2,9.1 
-                    'RatTRNH2RsfMRISinglePulse-20230527', #H2-2,9.2
-                    'RatTRNH2RsfMRISinglePulse-20230623', #H2-3,9.3
-                    'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.1
-                    'RatTRNH1RsfMRISinglePulse-20230529', #H1-2,10.2
-                    'RatTRNH1RsfMRISinglePulse-20230628', #H1-3,10.3
-                    'RatTRNH1RsfMRISinglePulse-20230706', #H1-4,10.4
-                    'RatTRNH1RsfMRISinglePulse-20230710', #H1-5,10.5
-                    'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.6
-                    'RatTRNH3RsfMRISinglePulse-20230523', #H3,11
-                    'RatTRNH4RsfMRISinglePulse-20230531', #H4,12.1
-                    'RatTRNH4RsfMRISinglePulse-20230626', #H4-2,12.2
-                    'RatTRNH5RsfMRISinglePulse-20230702', #H5,13.1  
-                    'RatTRNH5RsfMRISinglePulse-20230708', #H5-2,13.2
-                    'RatTRNH5RsfMRISinglePulse-20230712', #H5-3,13.3
-                    'RatTRNH5RsfMRISinglePulse-20230718', #H5-4,13.4
-                    'RatTRNH5RsfMRISinglePulse-20230722', #H5-5,13.5
-                    'RatTRNH8RsfMRISinglePulse-20230704', #H8,14.1
-                    'RatTRNH8RsfMRISinglePulse-20230708', #H8-2,14.2
-                    'RatTRNH8RsfMRISinglePulse-20230718', #H8-4,14.4
-                    'RatTRNH8RsfMRISinglePulse-20230722', #H8-5,14.5
-                    'RatTRNH7RsfMRISinglePulse-20230716', #H7,15.1
-                    'RatTRNH7RsfMRISinglePulse-20230720', #H7-2,15.2
+            'RatTRNG6RsfMRISinglePulse-20230505', #G6,6.1
+            'RatTRNG6RsfMRISinglePulse-20230516', #G6-2,6.2
+            'RatTRNG7RsfMRISinglePulse-20230510', #G7,7.1  
+            'RatTRNG7RsfMRISinglePulse-20230516', #G7-2,7.2
+            'RatTRNG7RsfMRISinglePulse-20230622', #G7-3,7.3
+            'RatTRNG7RsfMRISinglePulse-20230628', #G7-4,7.4
+            'RatTRNG8RsfMRISinglePulse-20230512', #G8,8.1  
+            'RatTRNG8RsfMRISinglePulse-20230525', #G8-2,8.2
+            'RatTRNG8RsfMRISinglePulse-20230623', #G8-3,8.3
+            'RatTRNG8RsfMRISinglePulse-20230630', #G8-4,8.4
+            'RatTRNH2RsfMRISinglePulse-20230514', #H2,9.1 
+            'RatTRNH2RsfMRISinglePulse-20230527', #H2-2,9.2
+            'RatTRNH2RsfMRISinglePulse-20230623', #H2-3,9.3
+            'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.1
+            'RatTRNH1RsfMRISinglePulse-20230529', #H1-2,10.2
+            'RatTRNH1RsfMRISinglePulse-20230628', #H1-3,10.3
+            'RatTRNH1RsfMRISinglePulse-20230706', #H1-4,10.4
+            'RatTRNH1RsfMRISinglePulse-20230710', #H1-5,10.5
+            'RatTRNH1RsfMRISinglePulse-20230714', #H1-6,10.6
+            'RatTRNH3RsfMRISinglePulse-20230523', #H3,11
+            'RatTRNH4RsfMRISinglePulse-20230531', #H4,12.1
+            'RatTRNH4RsfMRISinglePulse-20230626', #H4-2,12.2
+            'RatTRNH5RsfMRISinglePulse-20230702', #H5,13.1  
+            'RatTRNH5RsfMRISinglePulse-20230708', #H5-2,13.2
+            'RatTRNH5RsfMRISinglePulse-20230712', #H5-3,13.3
+            'RatTRNH5RsfMRISinglePulse-20230718', #H5-4,13.4
+            'RatTRNH5RsfMRISinglePulse-20230722', #H5-5,13.5
+            'RatTRNH8RsfMRISinglePulse-20230704', #H8,14.1
+            'RatTRNH8RsfMRISinglePulse-20230708', #H8-2,14.2
+            'RatTRNH8RsfMRISinglePulse-20230718', #H8-4,14.4
+            'RatTRNH8RsfMRISinglePulse-20230722', #H8-5,14.5
+            'RatTRNH7RsfMRISinglePulse-20230716', #H7,15.1
+            'RatTRNH7RsfMRISinglePulse-20230720', #H7-2,15.2
         ] 
 
         scan_num= [
-                    [13,14,15], #G6,6.1
-                    [19,20,21], #G6-2,6.2
-                    [13,14,15], #G7,7.1  
-                    [19,20,21], #G7-2,7.2
-                    [20,21,22], #G7-3,7.3
-                    [8], #G7-4,7.4
-                    [13,14,15,17], #G8,8.1  
-                    [14,15,16], #G8-2,8.2
-                    [19,20,21], #G8-3,8.3
-                    [19,20,21], #G8-4,8.4
-                    [13,14,15], #H2,9.1 
-                    [13,14,15], #H2-2,9.2
-                    [19,20,21], #H2-3,9.3
-                    [13,14,15], #H1,10.1
-                    [13,14,15,16], #H1-2,10.2
-                    [13,14,15], #H1-3,10.3
-                    [19,20,21], #H1-4,10.4
-                    [19,20,21], #H1-5,10.5
-                    [9], #H1-6,10.6
-                    [13,14,15,16], #H3,11
-                    [13,14,15], #H4,12.1
-                    [19,20,21], #H4-2,12.2
-                    [13,14,15,16], #H5,13.1  
-                    [19,20,21], #H5-2,13.2
-                    [19,20,21], #H5-3,13.3
-                    [18,19,20], #H5-4,13.4
-                    [26], #H5-5,13.5
-                    [13,14,15], #H8,14.1
-                    [19,20,21], #H8-2,14.2
-                    [19,20,21], #H8-4,14.4
-                    [27], #H8-5,14.5
-                    [19,20,21], #H7,15.1
-                    [21], #H7-2,15.2
-                    
-            ]
+            [13,14,15], #G6,6.1
+            [19,20,21], #G6-2,6.2
+            [13,14,15], #G7,7.1  
+            [19,20,21], #G7-2,7.2
+            [20,21,22], #G7-3,7.3
+            [8], #G7-4,7.4
+            [13,14,15,17], #G8,8.1  
+            [14,15,16], #G8-2,8.2
+            [19,20,21], #G8-3,8.3
+            [19,20,21], #G8-4,8.4
+            [13,14,15], #H2,9.1 
+            [13,14,15], #H2-2,9.2
+            [19,20,21], #H2-3,9.3
+            [13,14,15], #H1,10.1
+            [13,14,15,16], #H1-2,10.2
+            [13,14,15], #H1-3,10.3
+            [19,20,21], #H1-4,10.4
+            [19,20,21], #H1-5,10.5
+            [9], #H1-6,10.6
+            [13,14,15,16], #H3,11
+            [13,14,15], #H4,12.1
+            [19,20,21], #H4-2,12.2
+            [13,14,15,16], #H5,13.1  
+            [19,20,21], #H5-2,13.2
+            [19,20,21], #H5-3,13.3
+            [18,19,20], #H5-4,13.4
+            [26], #H5-5,13.5
+            [13,14,15], #H8,14.1
+            [19,20,21], #H8-2,14.2
+            [19,20,21], #H8-4,14.4
+            [27], #H8-5,14.5
+            [19,20,21], #H7,15.1
+            [21], #H7-2,15.2
+        ]
 
         AllAVGanimals= [
-                    [73], #AVG of 6-15           
+            [6.1], #G6,6.1
+            [6.2], #G6-2,6.2
+            [7.1], #G7,7.1  
+            [7.2], #G7-2,7.2
+            [7.3], #G7-3,7.3
+            [7.4], #G7-4,7.4
+            [8.1], #G8,8.1  
+            [8.2], #G8-2,8.2
+            [8.3], #G8-3,8.3
+            [8.4], #G8-4,8.4
+            [9.1], #H2,9.1 
+            [9.2], #H2-2,9.2
+            [9.3], #H2-3,9.3
+            [10.1], #H1,10.1
+            [10.2], #H1-2,10.2
+            [10.3], #H1-3,10.3
+            [10.4], #H1-4,10.4
+            [10.5], #H1-5,10.5
+            [10.6], #H1-6,10.6
+            [11], #H3,11
+            [12.1], #H4,12.1
+            [12.2], #H4-2,12.2
+            [13.1], #H5,13.1  
+            [13.2], #H5-2,13.2
+            [13.3], #H5-3,13.3
+            [13.4], #H5-4,13.4
+            [13.5], #H5-5,13.5
+            [14.1], #H8,14.1
+            [14.2], #H8-2,14.2
+	        [14.4], #H8-4,14.4
+            [14.5], #H8-5,14.5
+            [15.1], #H7,15.1
+            [15.2], #H7-2,15.2                  
         ]
 
 
@@ -170,231 +201,322 @@ def get_study_ids_and_scan_nums(condition):
     elif Condidx==2:
 
         study_ids= [
-                    'RatTRNG6RsfMRISinglePulse-20230505', #G6,6.1
-                    'RatTRNG6RsfMRISinglePulse-20230516', #G6-2,6.2
-                    'RatTRNG7RsfMRISinglePulse-20230510', #G7,7.1  
-                    'RatTRNG7RsfMRISinglePulse-20230516', #G7-2,7.2
-                    'RatTRNG7RsfMRISinglePulse-20230622', #G7-3,7.3
-                    'RatTRNG7RsfMRISinglePulse-20230628', #G7-4,7.4
-                    'RatTRNG8RsfMRISinglePulse-20230512', #G8,8.1  
-                    'RatTRNG8RsfMRISinglePulse-20230525', #G8-2,8.2
-                    'RatTRNG8RsfMRISinglePulse-20230623', #G8-3,8.3
-                    'RatTRNG8RsfMRISinglePulse-20230630', #G8-4,8.4
-                    'RatTRNH2RsfMRISinglePulse-20230514', #H2,9.1 
-                    'RatTRNH2RsfMRISinglePulse-20230527', #H2-2,9.2
-                    'RatTRNH2RsfMRISinglePulse-20230623', #H2-3,9.3
-                    'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.1
-                    'RatTRNH1RsfMRISinglePulse-20230529', #H1-2,10.2
-                    'RatTRNH1RsfMRISinglePulse-20230628', #H1-3,10.3
-                    'RatTRNH1RsfMRISinglePulse-20230706', #H1-4,10.4
-                    'RatTRNH1RsfMRISinglePulse-20230710', #H1-5,10.5
-                    'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.6
-                    'RatTRNH3RsfMRISinglePulse-20230523', #H3,11
-                    'RatTRNH4RsfMRISinglePulse-20230531', #H4,12.1
-                    'RatTRNH4RsfMRISinglePulse-20230626', #H4-2,12.2
-                    'RatTRNH5RsfMRISinglePulse-20230702', #H5,13.1  
-                    'RatTRNH5RsfMRISinglePulse-20230708', #H5-2,13.2
-                    'RatTRNH5RsfMRISinglePulse-20230712', #H5-3,13.3
-                    'RatTRNH5RsfMRISinglePulse-20230718', #H5-4,13.4
-                    'RatTRNH5RsfMRISinglePulse-20230722', #H5-5,13.5
-                    'RatTRNH8RsfMRISinglePulse-20230704', #H8,14.1
-                    'RatTRNH8RsfMRISinglePulse-20230708', #H8-2,14.2
-                    'RatTRNH8RsfMRISinglePulse-20230722', #H8-5,14.5
-                    'RatTRNH7RsfMRISinglePulse-20230716', #H7,15.1
-                    'RatTRNH7RsfMRISinglePulse-20230720', #H7-2,15.2
-                    ] 
+            'RatTRNG6RsfMRISinglePulse-20230505', #G6,6.1
+            'RatTRNG6RsfMRISinglePulse-20230516', #G6-2,6.2
+            'RatTRNG7RsfMRISinglePulse-20230510', #G7,7.1  
+            'RatTRNG7RsfMRISinglePulse-20230516', #G7-2,7.2
+            'RatTRNG7RsfMRISinglePulse-20230622', #G7-3,7.3
+            'RatTRNG7RsfMRISinglePulse-20230628', #G7-4,7.4
+            'RatTRNG8RsfMRISinglePulse-20230512', #G8,8.1  
+            'RatTRNG8RsfMRISinglePulse-20230525', #G8-2,8.2
+            'RatTRNG8RsfMRISinglePulse-20230623', #G8-3,8.3
+            'RatTRNG8RsfMRISinglePulse-20230630', #G8-4,8.4
+            'RatTRNH2RsfMRISinglePulse-20230514', #H2,9.1 
+            'RatTRNH2RsfMRISinglePulse-20230527', #H2-2,9.2
+            'RatTRNH2RsfMRISinglePulse-20230623', #H2-3,9.3
+            'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.1
+            'RatTRNH1RsfMRISinglePulse-20230529', #H1-2,10.2
+            'RatTRNH1RsfMRISinglePulse-20230628', #H1-3,10.3
+            'RatTRNH1RsfMRISinglePulse-20230706', #H1-4,10.4
+            'RatTRNH1RsfMRISinglePulse-20230710', #H1-5,10.5
+            'RatTRNH1RsfMRISinglePulse-20230714', #H1-6,10.6
+            'RatTRNH3RsfMRISinglePulse-20230523', #H3,11
+            'RatTRNH4RsfMRISinglePulse-20230531', #H4,12.1
+            'RatTRNH4RsfMRISinglePulse-20230626', #H4-2,12.2
+            'RatTRNH5RsfMRISinglePulse-20230702', #H5,13.1  
+            'RatTRNH5RsfMRISinglePulse-20230708', #H5-2,13.2
+            'RatTRNH5RsfMRISinglePulse-20230712', #H5-3,13.3
+            'RatTRNH5RsfMRISinglePulse-20230718', #H5-4,13.4
+            'RatTRNH5RsfMRISinglePulse-20230722', #H5-5,13.5
+            'RatTRNH8RsfMRISinglePulse-20230704', #H8,14.1
+            'RatTRNH8RsfMRISinglePulse-20230708', #H8-2,14.2
+            'RatTRNH8RsfMRISinglePulse-20230722', #H8-5,14.5
+            'RatTRNH7RsfMRISinglePulse-20230716', #H7,15.1
+            'RatTRNH7RsfMRISinglePulse-20230720', #H7-2,15.2
+        ] 
 
 
         scan_num= [
-                    [19,20,21], #G6,6.1
-                    [13,14,15], #G6-2,6.2
-                    [19,20,21], #G7,7.1  
-                    [13,14,15], #G7-2,7.2
-                    [26,27,28], #G7-3,7.3
-                    [9], #G7-4,7.4
-                    [20,21,22,23,24], #G8,8.1  
-                    [20,21,22], #G8-2,8.2
-                    [13,14,15], #G8-3,8.3
-                    [13,14,15], #G8-4,8.4
-                    [19,20,21], #H2,9.1 
-                    [19,20,21], #H2-2,9.2
-                    [13,14,15], #H2-3,9.3
-                    [19,20,21], #H1,10.1
-                    [20,21,22], #H1-2,10.2
-                    [19,20,21], #H1-3,10.3
-                    [13,14,15], #H1-4,10.4
-                    [25,26,27], #H1-5,10.5
-                    [10], #H1-6,10.6
-                    [20,21,22], #H3,11
-                    [19,20,21], #H4,12.1
-                    [13,14,15], #H4-2,12.2
-                    [20,21,22], #H5,13.1  
-                    [13,14,15], #H5-2,13.2
-                    [25,26,27], #H5-3,13.3
-                    [24,25,26], #H5-4,13.4
-                    [27], #H5-5,13.5
-                    [19,20,21], #H8,14.1
-                    [13,14,15], #H8-2,14.2
-                    [28], #H8-5,14.5
-                    [25,26,27], #H7,15.1
-                    [22], #H7-2,15.2
-            ]
+            [19,20,21], #G6,6.1
+            [13,14,15], #G6-2,6.2
+            [19,20,21], #G7,7.1  
+            [13,14,15], #G7-2,7.2
+            [26,27,28], #G7-3,7.3
+            [9], #G7-4,7.4
+            [20,21,22,23,24], #G8,8.1  
+            [20,21,22], #G8-2,8.2
+            [13,14,15], #G8-3,8.3
+            [13,14,15], #G8-4,8.4
+            [19,20,21], #H2,9.1 
+            [19,20,21], #H2-2,9.2
+            [13,14,15], #H2-3,9.3
+            [19,20,21], #H1,10.1
+            [20,21,22], #H1-2,10.2
+            [19,20,21], #H1-3,10.3
+            [13,14,15], #H1-4,10.4
+            [25,26,27], #H1-5,10.5
+            [10], #H1-6,10.6
+            [20,21,22], #H3,11
+            [19,20,21], #H4,12.1
+            [13,14,15], #H4-2,12.2
+            [20,21,22], #H5,13.1  
+            [13,14,15], #H5-2,13.2
+            [25,26,27], #H5-3,13.3
+            [24,25,26], #H5-4,13.4
+            [27], #H5-5,13.5
+            [19,20,21], #H8,14.1
+            [13,14,15], #H8-2,14.2
+            [28], #H8-5,14.5
+            [25,26,27], #H7,15.1
+            [22], #H7-2,15.2
+        ]
 
 
         AllAVGanimals= [
-            [73],
-            ]
+            [6.1], #G6,6.1
+            [6.2], #G6-2,6.2
+            [7.1], #G7,7.1  
+            [7.2], #G7-2,7.2
+            [7.3], #G7-3,7.3
+            [7.4], #G7-4,7.4
+            [8.1], #G8,8.1  
+            [8.2], #G8-2,8.2
+            [8.3], #G8-3,8.3
+            [8.4], #G8-4,8.4
+            [9.1], #H2,9.1 
+            [9.2], #H2-2,9.2
+            [9.3], #H2-3,9.3
+            [10.1], #H1,10.1
+            [10.2], #H1-2,10.2
+            [10.3], #H1-3,10.3
+            [10.4], #H1-4,10.4
+            [10.5], #H1-5,10.5
+            [10.6], #H1-6,10.6
+            [11], #H3,11
+            [12.1], #H4,12.1
+            [12.2], #H4-2,12.2
+            [13.1], #H5,13.1  
+            [13.2], #H5-2,13.2
+            [13.3], #H5-3,13.3
+            [13.4], #H5-4,13.4
+            [13.5], #H5-5,13.5
+            [14.1], #H8,14.1
+            [14.2], #H8-2,14.2
+            [14.5], #H8-5,14.5
+            [15.1], #H7,15.1
+            [15.2], #H7-2,15.2
+        ]
  
 
         # 40HzSineWave10sOn20sOff(all trials)
     elif Condidx==3:
         study_ids= [
-                    'RatTRNG6RsfMRISinglePulse-20230505', #G6,6.1
-                    'RatTRNG6RsfMRISinglePulse-20230516', #G6-2,6.2
-                    'RatTRNG7RsfMRISinglePulse-20230510', #G7,7.1  
-                    'RatTRNG7RsfMRISinglePulse-20230516', #G7-2,7.2
-                    'RatTRNG7RsfMRISinglePulse-20230622', #G7-3,7.3
-                    'RatTRNG7RsfMRISinglePulse-20230628', #G7-4,7.4
-                    'RatTRNG8RsfMRISinglePulse-20230512', #G8,8.1  
-                    'RatTRNG8RsfMRISinglePulse-20230525', #G8-2,8.2
-                    'RatTRNG8RsfMRISinglePulse-20230623', #G8-3,8.3
-                    'RatTRNG8RsfMRISinglePulse-20230630', #G8-4,8.4
-                    'RatTRNH2RsfMRISinglePulse-20230514', #H2,9.1 
-                    'RatTRNH2RsfMRISinglePulse-20230527', #H2-2,9.2
-                    'RatTRNH2RsfMRISinglePulse-20230623', #H2-3,9.3
-                    'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.1
-                    'RatTRNH1RsfMRISinglePulse-20230529', #H1-2,10.2
-                    'RatTRNH1RsfMRISinglePulse-20230628', #H1-3,10.3
-                    'RatTRNH1RsfMRISinglePulse-20230706', #H1-4,10.4
-                    'RatTRNH1RsfMRISinglePulse-20230710', #H1-5,10.5
-                    'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.6
-                    'RatTRNH3RsfMRISinglePulse-20230523', #H3,11
-                    'RatTRNH4RsfMRISinglePulse-20230531', #H4,12.1
-                    'RatTRNH4RsfMRISinglePulse-20230626', #H4-2,12.2
-                    'RatTRNH5RsfMRISinglePulse-20230702', #H5,13.1  
-                    'RatTRNH5RsfMRISinglePulse-20230708', #H5-2,13.2
-                    'RatTRNH5RsfMRISinglePulse-20230712', #H5-3,13.3
-                    'RatTRNH5RsfMRISinglePulse-20230718', #H5-4,13.4
-                    'RatTRNH5RsfMRISinglePulse-20230722', #H5-5,13.5
-                    'RatTRNH8RsfMRISinglePulse-20230704', #H8,14.1
-                    'RatTRNH8RsfMRISinglePulse-20230708', #H8-2,14.2
-                    'RatTRNH8RsfMRISinglePulse-20230712', #H8-3,14.3
-                    'RatTRNH8RsfMRISinglePulse-20230718', #H8-4,14.4
-                    'RatTRNH8RsfMRISinglePulse-20230722', #H8-5,14.5
-                    'RatTRNH7RsfMRISinglePulse-20230716', #H7,15.1
-                    'RatTRNH7RsfMRISinglePulse-20230720', #H7-2,15.2
-                    ] 
+            'RatTRNG6RsfMRISinglePulse-20230505', #G6,6.1
+            'RatTRNG6RsfMRISinglePulse-20230516', #G6-2,6.2
+            'RatTRNG7RsfMRISinglePulse-20230510', #G7,7.1  
+            'RatTRNG7RsfMRISinglePulse-20230516', #G7-2,7.2
+            'RatTRNG7RsfMRISinglePulse-20230622', #G7-3,7.3
+            'RatTRNG7RsfMRISinglePulse-20230628', #G7-4,7.4
+            'RatTRNG8RsfMRISinglePulse-20230512', #G8,8.1  
+            'RatTRNG8RsfMRISinglePulse-20230525', #G8-2,8.2
+            'RatTRNG8RsfMRISinglePulse-20230623', #G8-3,8.3
+            'RatTRNG8RsfMRISinglePulse-20230630', #G8-4,8.4
+            'RatTRNH2RsfMRISinglePulse-20230514', #H2,9.1 
+            'RatTRNH2RsfMRISinglePulse-20230527', #H2-2,9.2
+            'RatTRNH2RsfMRISinglePulse-20230623', #H2-3,9.3
+            'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.1
+            'RatTRNH1RsfMRISinglePulse-20230529', #H1-2,10.2
+            'RatTRNH1RsfMRISinglePulse-20230628', #H1-3,10.3
+            'RatTRNH1RsfMRISinglePulse-20230706', #H1-4,10.4
+            'RatTRNH1RsfMRISinglePulse-20230710', #H1-5,10.5
+            'RatTRNH1RsfMRISinglePulse-20230714', #H1-6,10.6
+            'RatTRNH3RsfMRISinglePulse-20230523', #H3,11
+            'RatTRNH4RsfMRISinglePulse-20230531', #H4,12.1
+            'RatTRNH4RsfMRISinglePulse-20230626', #H4-2,12.2
+            'RatTRNH5RsfMRISinglePulse-20230702', #H5,13.1  
+            'RatTRNH5RsfMRISinglePulse-20230708', #H5-2,13.2
+            'RatTRNH5RsfMRISinglePulse-20230712', #H5-3,13.3
+            'RatTRNH5RsfMRISinglePulse-20230718', #H5-4,13.4
+            'RatTRNH5RsfMRISinglePulse-20230722', #H5-5,13.5
+            'RatTRNH8RsfMRISinglePulse-20230704', #H8,14.1
+            'RatTRNH8RsfMRISinglePulse-20230708', #H8-2,14.2
+            'RatTRNH8RsfMRISinglePulse-20230712', #H8-3,14.3
+            'RatTRNH8RsfMRISinglePulse-20230718', #H8-4,14.4
+            'RatTRNH8RsfMRISinglePulse-20230722', #H8-5,14.5
+            'RatTRNH7RsfMRISinglePulse-20230716', #H7,15.1
+            'RatTRNH7RsfMRISinglePulse-20230720', #H7-2,15.2
+        ] 
 
 
         scan_num= [
-                    [25,26,27], #G6,6.1
-                    [25,26,27], #G6-2,6.2
-                    [25,26,27], #G7,7.1  
-                    [25,26,27], #G7-2,7.2
-                    [14,15,16], #G7-3,7.3
-                    [10], #G7-4,7.4
-                    [28,29,30], #G8,8.1  
-                    [26,27,28], #G8-2,8.2
-                    [25,26,27], #G8-3,8.3
-                    [25,26,27], #G8-4,8.4
-                    [25,26,27], #H2,9.1 
-                    [25,26,27], #H2-2,9.2
-                    [25,26,27], #H2-3,9.3
-                    [26,27,28], #H1,10.1
-                    [26,27,28], #H1-2,10.2
-                    [25,26,27], #H1-3,10.3
-                    [25,26,27], #H1-4,10.4
-                    [13,14,15], #H1-5,10.5
-                    [11], #H1-6,10.6
-                    [27,28,29], #H3,11
-                    [25,26,27], #H4,12.1
-                    [25,26,27], #H4-2,12.2
-                    [26,27,28], #H5,13.1  
-                    [25,26,27], #H5-2,13.2
-                    [13,14,15], #H5-3,13.3
-                    [12,13,14], #H5-4,13.4
-                    [28], #H5-5,13.5
-                    [25,26,27], #H8,14.1
-                    [25,26,27], #H8-2,14.2
-                    [13,14,15,19,20], #H8-3,14.3
-                    [13,14,15], #H8-4,14.4
-                    [29], #H8-4,14.5
-                    [13,14,15], #H7,15.1
-                    [15,16,17], #H7-2,15.2
-            ]
+            [25,26,27], #G6,6.1
+            [25,26,27], #G6-2,6.2
+            [25,26,27], #G7,7.1  
+            [25,26,27], #G7-2,7.2
+            [14,15,16], #G7-3,7.3
+            [10], #G7-4,7.4
+            [28,29,30], #G8,8.1  
+            [26,27,28,33,34], #G8-2,8.2
+            [25,26,27], #G8-3,8.3
+            [25,26,27], #G8-4,8.4
+            [25,26,27], #H2,9.1 
+            [25,26,27], #H2-2,9.2
+            [25,26,27], #H2-3,9.3
+            [26,27,28], #H1,10.1
+            [26,27,28], #H1-2,10.2
+            [25,26,27], #H1-3,10.3
+            [25,26,27], #H1-4,10.4
+            [13,14,15], #H1-5,10.5
+            [11], #H1-6,10.6
+            [27,28,29], #H3,11
+            [25,26,27], #H4,12.1
+            [25,26,27], #H4-2,12.2
+            [26,27,28], #H5,13.1  
+            [25,26,27], #H5-2,13.2
+            [13,14,15], #H5-3,13.3
+            [12,13,14], #H5-4,13.4
+            [28], #H5-5,13.5
+            [25,26,27], #H8,14.1
+            [25,26,27], #H8-2,14.2
+            [13,14,15,19,20], #H8-3,14.3
+            [13,14,15], #H8-4,14.4
+            [29], #H8-4,14.5
+            [13,14,15], #H7,15.1
+            [15,16,17], #H7-2,15.2
+        ]
         AllAVGanimals= [
-            [73]
+            [6.1], #G6,6.1
+            [6.2], #G6-2,6.2
+            [7.1], #G7,7.1  
+            [7.2], #G7-2,7.2
+            [7.3], #G7-3,7.3
+            [7.4], #G7-4,7.4
+            [8.1], #G8,8.1  
+            [8.2], #G8-2,8.2
+            [8.3], #G8-3,8.3
+            [8.4], #G8-4,8.4
+            [9.1], #H2,9.1 
+            [9.2], #H2-2,9.2
+            [9.3], #H2-3,9.3
+            [10.1], #H1,10.1
+            [10.2], #H1-2,10.2
+            [10.3], #H1-3,10.3
+            [10.4], #H1-4,10.4
+            [10.5], #H1-5,10.5
+            [10.6], #H1-6,10.6
+            [11], #H3,11
+            [12.1], #H4,12.1
+            [12.2], #H4-2,12.2
+            [13.1], #H5,13.1  
+            [13.2], #H5-2,13.2
+            [13.3], #H5-3,13.3
+            [13.4], #H5-4,13.4
+            [13.5], #H5-5,13.5
+            [14.1], #H8,14.1
+            [14.2], #H8-2,14.2
+	        [14.3], #H8-2,14.3
+	        [14.4], #H8-4,14.4
+            [14.5], #H8-5,14.5
+            [15.1], #H7,15.1
+            [15.2], #H7-2,15.2
         ]
 
 
     # 5sConstWave1sDura(all trials)
     elif Condidx==4:
         study_ids= [
-                    'RatTRNG6RsfMRISinglePulse-20230505', #G6,6.1
-                    'RatTRNG6RsfMRISinglePulse-20230516', #G6-2,6.2
-                    'RatTRNG7RsfMRISinglePulse-20230510', #G7,7.1  
-                    'RatTRNG7RsfMRISinglePulse-20230516', #G7-2,7.2
-                    'RatTRNG7RsfMRISinglePulse-20230622', #G7-3,7.3
-                    'RatTRNG7RsfMRISinglePulse-20230628', #G7-4,7.4
-                    'RatTRNG8RsfMRISinglePulse-20230512', #G8,8.1  
-                    'RatTRNG8RsfMRISinglePulse-20230525', #G8-2,8.2
-                    'RatTRNG8RsfMRISinglePulse-20230623', #G8-3,8.3
-                    'RatTRNH2RsfMRISinglePulse-20230514', #H2,9.1 
-                    'RatTRNH2RsfMRISinglePulse-20230527', #H2-2,9.2
-                    'RatTRNH2RsfMRISinglePulse-20230623', #H2-3,9.3
-                    'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.1
-                    'RatTRNH1RsfMRISinglePulse-20230529', #H1-2,10.2
-                    'RatTRNH1RsfMRISinglePulse-20230628', #H1-3,10.3
-                    'RatTRNH1RsfMRISinglePulse-20230706', #H1-4,10.4
-                    'RatTRNH1RsfMRISinglePulse-20230710', #H1-5,10.5
-                    'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.6
-                    'RatTRNH3RsfMRISinglePulse-20230523', #H3,11
-                    'RatTRNH4RsfMRISinglePulse-20230531', #H4,12.1
-                    'RatTRNH4RsfMRISinglePulse-20230626', #H4-2,12.2
-                    'RatTRNH5RsfMRISinglePulse-20230702', #H5,13.1  
-                    'RatTRNH5RsfMRISinglePulse-20230708', #H5-2,13.2
-                    'RatTRNH5RsfMRISinglePulse-20230712', #H5-3,13.3
-                    'RatTRNH5RsfMRISinglePulse-20230718', #H5-4,13.4
-                    'RatTRNH8RsfMRISinglePulse-20230704', #H8,14.1
-                    'RatTRNH7RsfMRISinglePulse-20230716', #H7,15.1
-                    'RatTRNH7RsfMRISinglePulse-20230720', #H7-2,15.2
-                    ] 
+            'RatTRNG6RsfMRISinglePulse-20230505', #G6,6.1
+            'RatTRNG6RsfMRISinglePulse-20230516', #G6-2,6.2
+            'RatTRNG7RsfMRISinglePulse-20230510', #G7,7.1  
+            'RatTRNG7RsfMRISinglePulse-20230516', #G7-2,7.2
+            'RatTRNG7RsfMRISinglePulse-20230622', #G7-3,7.3
+            'RatTRNG7RsfMRISinglePulse-20230628', #G7-4,7.4
+            'RatTRNG8RsfMRISinglePulse-20230512', #G8,8.1  
+            'RatTRNG8RsfMRISinglePulse-20230525', #G8-2,8.2
+            'RatTRNG8RsfMRISinglePulse-20230623', #G8-3,8.3
+            'RatTRNH2RsfMRISinglePulse-20230514', #H2,9.1 
+            'RatTRNH2RsfMRISinglePulse-20230527', #H2-2,9.2
+            'RatTRNH2RsfMRISinglePulse-20230623', #H2-3,9.3
+            'RatTRNH1RsfMRISinglePulse-20230518', #H1,10.1
+            'RatTRNH1RsfMRISinglePulse-20230529', #H1-2,10.2
+            'RatTRNH1RsfMRISinglePulse-20230628', #H1-3,10.3
+            'RatTRNH1RsfMRISinglePulse-20230706', #H1-4,10.4
+            'RatTRNH1RsfMRISinglePulse-20230710', #H1-5,10.5
+            'RatTRNH1RsfMRISinglePulse-20230714', #H1-6,10.6
+            'RatTRNH3RsfMRISinglePulse-20230523', #H3,11
+            'RatTRNH4RsfMRISinglePulse-20230531', #H4,12.1
+            'RatTRNH4RsfMRISinglePulse-20230626', #H4-2,12.2
+            'RatTRNH5RsfMRISinglePulse-20230702', #H5,13.1  
+            'RatTRNH5RsfMRISinglePulse-20230708', #H5-2,13.2
+            'RatTRNH5RsfMRISinglePulse-20230712', #H5-3,13.3
+            'RatTRNH5RsfMRISinglePulse-20230718', #H5-4,13.4
+            'RatTRNH8RsfMRISinglePulse-20230704', #H8,14.1
+            'RatTRNH7RsfMRISinglePulse-20230716', #H7,15.1
+            'RatTRNH7RsfMRISinglePulse-20230720', #H7-2,15.2
+        ] 
 
 
         scan_num= [
-                    [31,32,33], #G6,6.1
-                    [31,32,33], #G6-2,6.2
-                    [31,32,33], #G7,7.1  
-                    [31,32,33], #G7-2,7.2
-                    [32,33,34], #G7-3,7.3
-                    [13], #G7-4,7.4
-                    [34,35,36], #G8,8.1  
-                    [35,36,37], #G8-2,8.2
-                    [33,34,35], #G8-3,8.3
-                    [31,32,33], #H2,9.1 
-                    [31,32,33], #H2-2,9.2
-                    [31,32,33], #H2-3,9.3
-                    [32,33,34,35], #H1,10.1
-                    [32,33,34], #H1-2,10.2
-                    [31,32,33], #H1-3,10.3
-                    [31,32,33], #H1-4,10.4
-                    [31,32,33], #H1-5,10.5
-                    [15], #H1-6,10.6
-                    [33,34,35], #H3,11
-                    [31,32,33], #H4,12.1
-                    [31,32,33], #H4-2,12.2
-                    [32,33,34], #H5,13.1  
-                    [31,32,33], #H5-2,13.2
-                    [31,32,33], #H5-3,13.3
-                    [30,31,32], #H5-4,13.4
-                    [31,32,33], #H8,14.1
-                    [31,32,33], #H7,15.1
-                    [26], #H7-2,15.2
+            [31,32,33], #G6,6.1
+            [31,32,33], #G6-2,6.2
+            [31,32,33], #G7,7.1  
+            [31,32,33], #G7-2,7.2
+            [32,33,34], #G7-3,7.3
+            [13], #G7-4,7.4
+            [34,35,36], #G8,8.1  
+            [35,36,37], #G8-2,8.2
+            [33,34,35], #G8-3,8.3
+            [31,32,33], #H2,9.1 
+            [31,32,33], #H2-2,9.2
+            [31,32,33], #H2-3,9.3
+            [32,33,34,35], #H1,10.1
+            [32,33,34], #H1-2,10.2
+            [31,32,33], #H1-3,10.3
+            [31,32,33], #H1-4,10.4
+            [31,32,33], #H1-5,10.5
+            [15], #H1-6,10.6
+            [33,34,35], #H3,11
+            [31,32,33], #H4,12.1
+            [31,32,33], #H4-2,12.2
+            [32,33,34], #H5,13.1  
+            [31,32,33], #H5-2,13.2
+            [31,32,33], #H5-3,13.3
+            [30,31,32], #H5-4,13.4
+            [31,32,33], #H8,14.1
+            [31,32,33], #H7,15.1
+            [26], #H7-2,15.2
                     
-            ]
+        ]
 
         AllAVGanimals= [
-            [73]
+            [6.1], #G6,6.1
+            [6.2], #G6-2,6.2
+            [7.1], #G7,7.1  
+            [7.2], #G7-2,7.2
+            [7.3], #G7-3,7.3
+            [7.4], #G7-4,7.4
+            [8.1], #G8,8.1  
+            [8.2], #G8-2,8.2
+            [8.3], #G8-3,8.3
+            [9.1], #H2,9.1 
+            [9.2], #H2-2,9.2
+            [9.3], #H2-3,9.3
+            [10.1], #H1,10.1
+            [10.2], #H1-2,10.2
+            [10.3], #H1-3,10.3
+            [10.4], #H1-4,10.4
+            [10.5], #H1-5,10.5
+            [10.6], #H1-6,10.6
+            [11], #H3,11
+            [12.1], #H4,12.1
+            [12.2], #H4-2,12.2
+            [13.1], #H5,13.1  
+            [13.2], #H5-2,13.2
+            [13.3], #H5-3,13.3
+            [13.4], #H5-4,13.4
+            [14.1], #H8,14.1
+            [15.1], #H7,15.1
+            [15.2], #H7-2,15.2
         ]
 
 
@@ -1084,7 +1206,7 @@ condition_names = [
   '8Hz3sPulsetrain', #20
   '1Hz12sPulsetrain',
   '40Hz8mspulsetrain',
-  '8Hz3sCstAmpSineWave',
+  '8Hz3sCstAmpSineWave',    
 ]
 
 

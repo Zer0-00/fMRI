@@ -237,7 +237,7 @@ def GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(
             
         #Add the specific part of the directory name based on the AtlasbasedROIregres
         if Taskindex == 1:
-            common_dir = os.path.join(common_dir, 'TaskRegres') if AtlasbasedROIregres == 1 else os.path.join(common_dir, 'TaskRegres36pixels')
+            common_dir = os.path.join(common_dir, 'TaskRegres') if AtlasbasedROIregres == 1 else os.path.join(common_dir, 'TaskRegresSingleAnimal')
         #Add the specific part of the directory name based on the Motionregres
         if Motionregres == 1:
            common_dir = os.path.join(common_dir, 'MotionReg')
@@ -246,7 +246,7 @@ def GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(
         #Add the specific part of the directory name based on the smoothing
         if gaussian_sigma > 0:
             common_dir = os.path.join(common_dir, 'smooth')
-            
+
         dir_name = common_dir
         #Create the directory
         utils.create_folder(os.path.join(path1, '{}'.format(iifiles[iifile_idx]), dir_name))
@@ -330,7 +330,7 @@ def GenCCMap_v10_NoFilterMulSeedsTaskRegressedMotionRegressedBP(
         
     if Taskindex == 1:
         #Add the specific part of the directory name based on the AtlasbasedROIregres
-        common_dir2 = common_dir2 + '_TaskRegres' if AtlasbasedROIregres == 1 else common_dir2 + '_TaskRegres36pixels'
+        common_dir2 = common_dir2 + '_TaskRegres' if AtlasbasedROIregres == 1 else common_dir2 + '_TaskRegresSingleAnimal'
     
     #Add the specific part of the directory name based on the Motionregres
     common_dir2 = common_dir2 + '_MotionReg' if Motionregres == 1 else common_dir2
@@ -428,8 +428,9 @@ if __name__ == '__main__':
         configs.condition = condition_name
         study_ids, scan_nums, AllAVGanimals = get_study_ids_and_scan_nums(condition_name)
         configs.average_path = os.path.join(configs.root_dir,'AVG', condition_name)
-        configs.TaskmeanEPITrial = AllAVGanimals[0][0]
-        for study_id, scan_num in zip(study_ids, scan_nums):
+        
+        for study_idx, study_id, scan_num in enumerate(zip(study_ids, scan_nums)):
+            configs.TaskmeanEPITrial = AllAVGanimals[study_idx][0]
             print('Now processing study_id: {}, scan_num: {}'.format(study_id, scan_num))
             #setting study_id and scan_num
             configs.raw_path = os.path.join(configs.root_dir, study_id)
